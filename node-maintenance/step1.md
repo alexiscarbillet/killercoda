@@ -3,7 +3,7 @@
 You are a Kubernetes administrator performing scheduled maintenance on a worker node.
 
 **Goal:**
-- Identify the node named `node02`.
+- Identify the node named `node01`.
 - Drain it so no new pods are scheduled there.
 - Evict existing pods except DaemonSets.
 
@@ -15,8 +15,8 @@ You are a Kubernetes administrator performing scheduled maintenance on a worker 
 kubectl get nodes
 
 # Drain node02 while ignoring DaemonSets
-kubectl drain node02 --ignore-daemonsets
+kubectl drain node01 --ignore-daemonsets
 ```
 
 **Validation:**
-`node02` should now have the `SchedulingDisabled` status.
+`node01` should now have the `SchedulingDisabled` status.
