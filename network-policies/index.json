@@ -1,0 +1,18 @@
+{
+  "title": "CKA Practice: Network Policies",
+  "description": "Practice creating and applying Kubernetes Network Policies to control traffic.",
+  "difficulty": "Intermediate",
+  "time": "20",
+  "details": {
+    "steps": [
+      { "title": "Create a Test Environment", "text": "step1.md" },
+      { "title": "Restrict Traffic with a NetworkPolicy", "text": "step2.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
