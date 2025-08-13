@@ -1,1 +1,5 @@
-# killercoda
+# killercoda scenarios
+
+## CKA
+
+- node maintenance
