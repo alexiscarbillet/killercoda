@@ -1,0 +1,18 @@
+{
+  "title": "CKA Practice: Pod Debugging",
+  "description": "Practice identifying and fixing a misconfigured Kubernetes Pod.",
+  "difficulty": "Intermediate",
+  "time": "20",
+  "details": {
+    "steps": [
+      { "title": "Identify the Issue", "text": "step1.md" },
+      { "title": "Fix the Pod", "text": "step2.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
