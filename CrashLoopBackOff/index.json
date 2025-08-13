@@ -14,5 +14,10 @@
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-2nodes"
+  },
+  "environment": {
+    "preload": [
+      "bash /root/scenario/init.sh"
+    ]
   }
 }
