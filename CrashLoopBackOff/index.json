@@ -5,7 +5,7 @@
   "time": "20",
   "details": {
     "steps": [
-      { "title": "Identify the Problem", "text": "step1.md" },
+      { "title": "Identify the Problem", "text": "step1.md", "foreground": "foreground.sh", "background": "background.sh" },
       { "title": "Fix the Issue", "text": "step2.md" }
     ],
     "finish": {
