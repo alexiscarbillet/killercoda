@@ -2,7 +2,7 @@
   "title": "CKA Practice: Node Maintenance",
   "description": "Practice draining and uncordoning a Kubernetes node for maintenance.",
   "difficulty": "Intermediate",
-  "time": 20,
+  "time": "20",
   "details": {
     "steps": [
       { "title": "Drain a Node", "text": "step1.md" },
