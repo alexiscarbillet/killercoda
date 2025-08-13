@@ -1,0 +1,18 @@
+{
+  "title": "CKA Practice: ConfigMaps and Secrets",
+  "description": "Practice creating and using ConfigMaps and Secrets in Kubernetes.",
+  "difficulty": "Intermediate",
+  "time": "20",
+  "details": {
+    "steps": [
+      { "title": "Create a ConfigMap and Secret", "text": "step1.md" },
+      { "title": "Use ConfigMap and Secret in a Pod", "text": "step2.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

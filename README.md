@@ -3,3 +3,5 @@
 ## CKA
 
 - node maintenance
+- pod-debugging
+- configmap-secrets
