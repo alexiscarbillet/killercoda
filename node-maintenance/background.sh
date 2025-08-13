@@ -1,0 +1,1 @@
+kubectl create deployment my-app --image=busybox --replicas=3 -- /bin/sh -c "sleep 3600"

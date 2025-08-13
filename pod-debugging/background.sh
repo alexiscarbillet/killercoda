@@ -1,0 +1,1 @@
+kubectl run broken-pod --image=nonexistent-image:latest --restart=Never

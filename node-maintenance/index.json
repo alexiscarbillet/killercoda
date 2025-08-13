@@ -5,7 +5,7 @@
   "time": "20",
   "details": {
     "steps": [
-      { "title": "Drain a Node", "text": "step1.md" },
+      { "title": "Drain a Node", "text": "step1.md", "foreground": "foreground.sh", "background": "background.sh" },
       { "title": "Uncordon a Node", "text": "step2.md" }
     ],
     "finish": {
