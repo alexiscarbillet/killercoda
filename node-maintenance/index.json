@@ -12,11 +12,7 @@
       "text": "finish.md"
     }
   },
-  "environment": {
-    "imageId": "kubernetes-kubeadm-2nodes",
-    "showide": false,
-    "uilayout": "terminal",
-    "uimessage1": "You have a 2-node Kubernetes cluster ready to use.",
-    "assets": []
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
   }
 }
