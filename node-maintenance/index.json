@@ -7,9 +7,13 @@
     "steps": [
       { "title": "Drain a Node", "text": "step1.md" },
       { "title": "Uncordon a Node", "text": "step2.md" }
-    ]
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
   },
   "environment": {
+    "imageid": "kubernetes-kubeadm-2nodes",
     "showide": false,
     "uilayout": "terminal",
     "uimessage1": "You have a 2-node Kubernetes cluster ready to use.",
