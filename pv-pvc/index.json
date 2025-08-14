@@ -43,6 +43,6 @@
     ]
   },
   "backend": {
-    "imageid": "kubernetes-k3s"
+    "imageid": "kubernetes-kubeadm-2nodes"
   }
 }
