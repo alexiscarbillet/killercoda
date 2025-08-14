@@ -10,6 +10,5 @@ We can test the ServiceAccount’s permissions by impersonating it.
 ```bash
 kubectl auth can-i get pods --as=system:serviceaccount:rbac-demo:limited-sa -n rbac-demo
 kubectl auth can-i list pods --as=system:serviceaccount:rbac-demo:limited-sa -n rbac-demo
-**Example:**
 ```
 Both should return yes.
