@@ -11,3 +11,4 @@
 - pv-pvc
 - hpa
 - rolling-updates
+- rbac

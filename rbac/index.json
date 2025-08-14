@@ -1,0 +1,47 @@
+{
+  "title": "CKA Practice: RBAC (Role-Based Access Control)",
+  "description": "Learn how to create a Role with limited permissions, bind it to a ServiceAccount, and verify access restrictions in Kubernetes.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Create a Namespace",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Create a ServiceAccount",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Create a Role with Limited Permissions",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Bind the Role to the ServiceAccount",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 - Test Allowed Actions",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6 - Test Forbidden Actions",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Terminal", "port": 8080 }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
