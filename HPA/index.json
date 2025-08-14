@@ -1,0 +1,48 @@
+{
+  "title": "CKA Practice: Horizontal Pod Autoscaler (HPA)",
+  "description": "Deploy an application, configure HPA to scale based on CPU usage, generate load, and observe scaling behavior.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Deploy a Sample App",
+        "text": "step1.md",
+        "foreground": "foreground.sh"
+      },
+      {
+        "title": "Step 2 - Expose the App as a Service",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Create the HPA",
+        "text": "step3.md"
+      },
+      {
+        "title": "Step 4 - Generate Load",
+        "text": "step4.md"
+      },
+      {
+        "title": "Step 5 - Observe Scaling",
+        "text": "step5.md"
+      },
+      {
+        "title": "Step 6 - Clean Up",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Terminal", "port": 8080 }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

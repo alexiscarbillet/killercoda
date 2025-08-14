@@ -9,3 +9,4 @@
 - network-policies
 - service
 - pv-pvc
+- hpa
