@@ -8,3 +8,4 @@
 - CrashLoopBackOff
 - network-policies
 - service
+- pv-pvc

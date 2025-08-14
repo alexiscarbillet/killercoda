@@ -1,0 +1,48 @@
+{
+  "title": "Persistent Volumes and PVC",
+  "description": "Learn how to create a PersistentVolume, PersistentVolumeClaim, and use them in a pod while verifying data persistence after pod deletion.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Create PersistentVolume",
+        "text": "Create the PersistentVolume:\n\n```bash\nkubectl apply -f pv.yaml\nkubectl get pv\n```",
+        "foreground": "foreground.sh"
+      },
+      {
+        "title": "Step 2 - Create PersistentVolumeClaim",
+        "text": "Create the PersistentVolumeClaim:\n\n```bash\nkubectl apply -f pvc.yaml\nkubectl get pvc\n```"
+      },
+      {
+        "title": "Step 3 - Create Pod with PVC",
+        "text": "Deploy the pod:\n\n```bash\nkubectl apply -f pod.yaml\nkubectl get pods\n```"
+      },
+      {
+        "title": "Step 4 - Write Data to PV",
+        "text": "Write a file to the mounted volume:\n\n```bash\nkubectl exec -it pv-test-pod -- sh -c \"echo 'Hello from PV!' > /data/hello.txt\"\n```\n\nVerify:\n\n```bash\nkubectl exec -it pv-test-pod -- cat /data/hello.txt\n```"
+      },
+      {
+        "title": "Step 5 - Delete and Recreate Pod",
+        "text": "Delete and recreate the pod:\n\n```bash\nkubectl delete pod pv-test-pod\nkubectl apply -f pod.yaml\n```"
+      },
+      {
+        "title": "Step 6 - Verify Data Persistence",
+        "text": "Check the file again:\n\n```bash\nkubectl exec -it pv-test-pod -- cat /data/hello.txt\n```\n\n✅ You should still see `Hello from PV!`."
+      }
+    ],
+    "intro": {
+      "text": "In this scenario, you will learn how to use Kubernetes PersistentVolumes and PersistentVolumeClaims to store data beyond the lifecycle of a pod."
+    },
+    "finish": {
+      "text": "Well done! You have successfully created a PV, PVC, mounted it to a pod, and verified persistence after deletion."
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Terminal", "port": 8080 }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-k3s"
+  }
+}
