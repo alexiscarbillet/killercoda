@@ -5,35 +5,35 @@
     "steps": [
       {
         "title": "Step 1 - Create PersistentVolume",
-        "text": "Create a file called `pv.yaml` and define a PersistentVolume:\n\n```yaml\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: my-pv\nspec:\n  capacity:\n    storage: 1Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: /mnt/data\n```\n\nApply it:\n```bash\nkubectl apply -f pv.yaml\nkubectl get pv\n```",
+        "text": "step1.md",
         "foreground": "foreground.sh"
       },
       {
         "title": "Step 2 - Create PersistentVolumeClaim",
-        "text": "Create a file called `pvc.yaml` with the following:\n\n```yaml\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: my-pvc\nspec:\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 500Mi\n```\n\nApply it:\n```bash\nkubectl apply -f pvc.yaml\nkubectl get pvc\n```"
+        "text": "step2.md"
       },
       {
         "title": "Step 3 - Create Pod with PVC",
-        "text": "Create `pod.yaml`:\n\n```yaml\napiVersion: v1\nkind: Pod\nmetadata:\n  name: pv-test-pod\nspec:\n  containers:\n    - name: busybox\n      image: busybox\n      command: [\"sh\", \"-c\", \"sleep 3600\"]\n      volumeMounts:\n        - mountPath: \"/data\"\n          name: my-storage\n  volumes:\n    - name: my-storage\n      persistentVolumeClaim:\n        claimName: my-pvc\n```\n\nApply it:\n```bash\nkubectl apply -f pod.yaml\nkubectl get pods\n```"
+        "text": "step3.md"
       },
       {
         "title": "Step 4 - Write Data to PV",
-        "text": "Write to the mounted volume:\n\n```bash\nkubectl exec -it pv-test-pod -- sh -c \"echo 'Hello from PV!' > /data/hello.txt\"\n```\n\nCheck the file:\n```bash\nkubectl exec -it pv-test-pod -- cat /data/hello.txt\n```"
+        "text": "step4.md"
       },
       {
         "title": "Step 5 - Delete and Recreate Pod",
-        "text": "Delete and recreate the pod:\n\n```bash\nkubectl delete pod pv-test-pod\nkubectl apply -f pod.yaml\n```"
+        "text": "step5.md"
       },
       {
         "title": "Step 6 - Verify Data Persistence",
-        "text": "Check if the file still exists:\n\n```bash\nkubectl exec -it pv-test-pod -- cat /data/hello.txt\n```\n✅ Expected: `Hello from PV!`"
+        "text": "step6.md"
       }
     ],
     "intro": {
-      "text": "In this scenario, you will create Kubernetes PersistentVolumes and PersistentVolumeClaims from scratch, mount them in a pod, and verify that data persists after the pod is deleted."
+      "text": "intro.md"
     },
     "finish": {
-      "text": "You have successfully created a PV, PVC, mounted it to a pod, and confirmed persistence after deletion."
+      "text": "finish.md"
     }
   },
   "environment": {
