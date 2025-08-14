@@ -10,3 +10,4 @@
 - service
 - pv-pvc
 - hpa
+- rolling-updates
