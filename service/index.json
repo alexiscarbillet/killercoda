@@ -13,6 +13,6 @@
     }
   },
   "backend": {
-    "imageid": "kubernetes-cluster"
+    "imageid": "kubernetes-kubeadm-2nodes"
   }
 }
