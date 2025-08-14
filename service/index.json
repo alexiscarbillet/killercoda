@@ -6,7 +6,7 @@
       "text": "intro.md"
     },
     "steps": [
-      { "title": "Investigate and Fix the Service", "text": "step1.md" }
+      { "title": "Investigate and Fix the Service", "text": "step1.md", "foreground": "foreground.sh", "background": "background.sh" }
     ],
     "finish": {
       "text": "finish.md"
