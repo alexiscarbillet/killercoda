@@ -14,7 +14,7 @@ You are a Kubernetes administrator performing scheduled maintenance on a worker 
 # Check all nodes
 kubectl get nodes
 
-# Drain node02 while ignoring DaemonSets
+# Drain node01 while ignoring DaemonSets
 kubectl drain node01 --ignore-daemonsets
 ```
 

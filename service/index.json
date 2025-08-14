@@ -1,0 +1,18 @@
+{
+  "title": "Service Not Routing Traffic",
+  "description": "A web application is running but cannot be accessed via its Service. Your task is to troubleshoot and fix the issue.",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      { "title": "Investigate and Fix the Service", "text": "step1.md" }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster"
+  }
+}
