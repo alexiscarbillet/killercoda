@@ -1,5 +1,7 @@
 ## Step 2: Apply CronJob
 
+Create the file `hello-cron.yaml`:
+
 ```yaml
 apiVersion: batch/v1
 kind: CronJob
