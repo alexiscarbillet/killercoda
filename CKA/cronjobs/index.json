@@ -5,8 +5,7 @@
     "steps": [
       {
         "title": "Step 1 - Create Namespace",
-        "text": "step1.md",
-        "foreground": "foreground.sh"
+        "text": "step1.md"
       },
       {
         "title": "Step 2 - Apply CronJob",
