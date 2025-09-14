@@ -12,3 +12,4 @@
 - hpa
 - rolling-updates
 - rbac
+- cronjobs
