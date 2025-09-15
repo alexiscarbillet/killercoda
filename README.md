@@ -13,3 +13,4 @@
 - rolling-updates
 - rbac
 - cronjobs
+- Resource Quotas & LimitRanges
