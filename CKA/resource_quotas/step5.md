@@ -1,23 +1,34 @@
 ## Step 5: Fix the Pod
 
-Edit the manifest to include proper resources:
+Let’s try to exceed the quota.
+
+Create `pod-large.yaml`:
 
 ```yaml
-resources:
-  requests:
-    cpu: "100m"
-    memory: "128Mi"
-  limits:
-    cpu: "200m"
-    memory: "256Mi"
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-large
+  namespace: quota-demo
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sh", "-c", "sleep 3600"]
+    resources:
+      requests:
+        cpu: "2"
+        memory: 2Gi
+      limits:
+        cpu: "3"
+        memory: 3Gi
 ```
 
-Apply the fixed manifest:
+Apply it:
 
 ```bash
-kubectl delete pod bad-pod -n quota-lab
-kubectl apply -f fixed-pod.yaml -n quota-lab
-kubectl get pods -n quota-lab
+kubectl apply -f pod-large.yaml
+kubectl describe pod pod-large -n quota-demo
 ```
 
-Now the pod should run successfully.
+You should see a failure because it exceeds the namespace ResourceQuota.

@@ -1,4 +1,23 @@
 ## Step 2: Apply a ResourceQuota
+Create a file `quota.yaml` with the following content:
+
+```yaml
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: quota-demo
+spec:
+  hard:
+    pods: "3"
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+```
+
+Apply it:
+
 ```bash
 kubectl apply -f resource-quota.yaml -n quota-lab
 kubectl describe quota -n quota-lab

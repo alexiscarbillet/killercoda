@@ -31,29 +31,7 @@
     },
     "finish": {
       "text": "finish.md"
-    },
-    "assets": [
-      {
-        "name": "resource-quota.yaml",
-        "type": "file",
-        "content": "apiVersion: v1\nkind: ResourceQuota\nmetadata:\n  name: compute-quota\nspec:\n  hard:\n    pods: \"2\"\n    requests.cpu: \"500m\"\n    requests.memory: \"512Mi\"\n    limits.cpu: \"1\"\n    limits.memory: \"1Gi\""
-      },
-      {
-        "name": "limit-range.yaml",
-        "type": "file",
-        "content": "apiVersion: v1\nkind: LimitRange\nmetadata:\n  name: default-limits\nspec:\n  limits:\n  - default:\n      cpu: \"200m\"\n      memory: \"256Mi\"\n    defaultRequest:\n      cpu: \"100m\"\n      memory: \"128Mi\"\n    type: Container"
-      },
-      {
-        "name": "bad-pod.yaml",
-        "type": "file",
-        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: bad-pod\nspec:\n  containers:\n  - name: stress\n    image: busybox\n    command: [\"sh\", \"-c\", \"sleep 3600\"]"
-      },
-      {
-        "name": "fixed-pod.yaml",
-        "type": "file",
-        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: fixed-pod\nspec:\n  containers:\n  - name: stress\n    image: busybox\n    command: [\"sh\", \"-c\", \"sleep 3600\"]\n    resources:\n      requests:\n        cpu: \"100m\"\n        memory: \"128Mi\"\n      limits:\n        cpu: \"200m\"\n        memory: \"256Mi\""
-      }
-    ]
+    }
   },
   "environment": {
     "showdashboard": true,
