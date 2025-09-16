@@ -2,7 +2,7 @@
 
 Let’s start by creating a new systemd service unit.
 
-1. Create a script that prints a timestamp every 5 seconds:
+* Create a script that prints a timestamp every 5 seconds:
 
 ```bash
 mkdir -p /opt/myapp
@@ -10,7 +10,7 @@ echo -e '#!/bin/bash\nwhile true; do echo "MyApp running: $(date)"; sleep 5; don
 chmod +x /opt/myapp/myapp.sh
 ```
 
-2. Create a systemd service unit file:
+* Create a systemd service unit file:
 
 ```bash
 cat <<EOF | sudo tee /etc/systemd/system/myapp.service

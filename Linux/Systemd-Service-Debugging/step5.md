@@ -2,13 +2,13 @@
 
 Finally, let’s confirm everything is working.
 
-1. Check that the process is running:
+* Check that the process is running:
 
 ```bash
 ps aux | grep myapp
 ```
 
-2. View logs:
+* View logs:
 
 ```bash
 journalctl -u myapp.service -f
