@@ -1,0 +1,45 @@
+{
+  "title": "Linux User, Group, and Permissions Troubleshooting",
+  "description": "Learn how to create users and groups, configure file permissions and ACLs, and debug access issues.",
+  "difficulty": "Beginner",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Create Users and Groups",
+        "text": "step1.md"
+      },
+      {
+        "title": "Set File Permissions",
+        "text": "step2.md"
+      },
+      {
+        "title": "Test Access",
+        "text": "step3.md"
+      },
+      {
+        "title": "Debug and Fix Permissions",
+        "text": "step4.md"
+      },
+      {
+        "title": "Verify Access",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Terminal", "port": 8080 }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
