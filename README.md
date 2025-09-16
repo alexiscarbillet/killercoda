@@ -19,3 +19,4 @@
 
 - Systemd Service Debugging
 - User, Group, and Permissions Troubleshooting
+- Networking Troubleshooting
