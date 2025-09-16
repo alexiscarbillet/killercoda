@@ -1,0 +1,45 @@
+{
+  "title": "Linux Systemd Service Debugging",
+  "description": "Learn how to create, start, and debug custom systemd services on Linux.",
+  "difficulty": "Intermediate",
+  "time": "25 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Create a Custom Service",
+        "text": "step1.md"
+      },
+      {
+        "title": "Enable and Start the Service",
+        "text": "step2.md"
+      },
+      {
+        "title": "Debug Service Failures",
+        "text": "step3.md"
+      },
+      {
+        "title": "Fix the Service",
+        "text": "step4.md"
+      },
+      {
+        "title": "Verify and Test",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Terminal", "port": 8080 }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

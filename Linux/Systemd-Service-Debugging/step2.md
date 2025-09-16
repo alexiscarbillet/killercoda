@@ -1,0 +1,29 @@
+# Step 2: Enable and Start the Service
+
+Now let’s try to start the service.
+
+1. Reload systemd so it picks up the new service:
+
+```bash
+sudo systemctl daemon-reload
+```
+
+2. Enable the service to start at boot:
+
+```bash
+sudo systemctl enable myapp.service
+```
+
+3. Start the service:
+
+```bash
+sudo systemctl start myapp.service
+```
+
+4. Check the service status:
+
+```bash
+systemctl status myapp.service
+```
+
+You should see that the service fails to start. Don’t worry — this is expected! You’ll debug it in the next step.

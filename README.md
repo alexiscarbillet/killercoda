@@ -14,3 +14,7 @@
 - rbac
 - cronjobs
 - Resource Quotas & LimitRanges
+
+## Linux
+
+- Systemd Service Debugging
