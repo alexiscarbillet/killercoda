@@ -1,15 +1,8 @@
-#!/usr/bin/env bash
-# foreground.sh — simulate disk full in /var/log
+#!/bin/bash
 
-set -euo pipefail
+# Create a large file to simulate disk usage
+dd if=/dev/zero of=/bigfile bs=1M count=12000 status=none
 
-# Create a large fake log file to fill disk space
-fallocate -l 1G /var/log/biglog.log || dd if=/dev/zero of=/var/log/biglog.log bs=100M count=10
-
-# Another rotated file for realism
-fallocate -l 500M /var/log/biglog.log.1 || dd if=/dev/zero of=/var/log/biglog.log.1 bs=50M count=10
-
-echo "Disk artificially filled with log files. Learner must diagnose and clean up."
-
-# Keep container running
-tail -f /dev/null
+# Print a message so the user knows what happened
+echo "A large file was created to simulate a fuller disk."
+echo "You can now run 'df -h' to inspect disk usage."
