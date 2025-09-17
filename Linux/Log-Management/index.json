@@ -8,7 +8,7 @@
       {
         "title": "Check Disk Usage",
         "text": "step1.md",
-        "foreground": "background.sh"
+        "background": "background.sh"
       },
       {
         "title": "Identify Large Log Files",
