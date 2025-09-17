@@ -7,7 +7,8 @@
     "steps": [
       {
         "title": "Inspect Running Processes",
-        "text": "step1.md"
+        "text": "step1.md",
+        "background": "background.sh"
       },
       {
         "title": "Identify High Resource Consumers",
