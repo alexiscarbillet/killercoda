@@ -1,18 +1,27 @@
-# Step 5: Verify the Fix
+# Step 4: Configure Log Rotation
 
-Test your configuration:
+To prevent logs from filling the disk again, configure `logrotate`.
 
-Force a log rotation:
+Check existing config:
 ```bash
-sudo logrotate -f /etc/logrotate.conf
+cat /etc/logrotate.conf
 ```
 
-Check /var/log again:
+Now create a new config for biglog.log:
 ```bash
-ls -lh /var/log/biglog*
+sudo nano /etc/logrotate.d/biglog
 ```
 
-Confirm disk space:
+Add:
 ```bash
-df -h
+/var/log/biglog.log {
+    daily
+    rotate 7
+    copytruncate
+    compress
+    missingok
+    notifempty
+}
 ```
+
+This should keep logs small and automatically rotated every week.

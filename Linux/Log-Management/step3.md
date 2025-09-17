@@ -1,27 +1,23 @@
-# Step 4: Configure Log Rotation
+# Step 3: Free Disk Space
 
-To prevent logs from filling the disk again, configure `logrotate`.
+Now free up space by truncating or archiving the big log file.
 
-Check existing config:
+Option A – truncate (clears content but keeps file):
+
 ```bash
-cat /etc/logrotate.conf
+> /var/log/biglog.log
 ```
 
-Now create a new config for biglog.log:
+Option B – compress old logs (saves space but keeps history):
+
 ```bash
-sudo nano /etc/logrotate.d/biglog
+gzip /var/log/biglog.log.1
 ```
 
-Add:
+Verify space is freed:
+
 ```bash
-/var/log/biglog.log {
-    daily
-    rotate 7
-    copytruncate
-    compress
-    missingok
-    notifempty
-}
+df -h
 ```
 
-This should keep logs small and automatically rotated every week.
+Confirm that usage dropped.
