@@ -12,12 +12,6 @@ Check /var/log again:
 ls -lh /var/log/biglog*
 ```
 
-You should see:
-
-* The main log file truncated or rotated
-
-* Older logs compressed (.gz)
-
 Confirm disk space:
 ```bash
 df -h
