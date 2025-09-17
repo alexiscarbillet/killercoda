@@ -3,9 +3,8 @@
 Terminate runaway processes safely:
 
 ```bash
-kill <PID>
 pkill yes
-pkill -f 'while :; do :; done'
+pkill dd
 ```
 
 Check that the processes are gone:
