@@ -40,6 +40,6 @@
     ]
   },
   "backend": {
-    "imageid": "ubuntu-latest"
+    "imageid": "ubuntu"
   }
 }
