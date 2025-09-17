@@ -14,13 +14,13 @@ sudo nano /etc/logrotate.d/biglog
 
 Add:
 ```bash
-/var/log/biglog.log {
-    weekly
-    rotate 4
+/var/log/biglog {
+    daily
+    rotate 7
+    copytruncate
     compress
     missingok
     notifempty
-    create 0640 root root
 }
 ```
 
