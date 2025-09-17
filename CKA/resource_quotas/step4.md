@@ -9,7 +9,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-noresources
-  namespace: quota-demo
+  namespace: quota-lab
 spec:
   containers:
   - name: nginx
@@ -20,7 +20,7 @@ Apply it:
 
 ```bash
 kubectl apply -f pod-noresources.yaml
-kubectl describe pod pod-noresources -n quota-demo
+kubectl describe pod pod-noresources -n quota-lab
 ```
 
 You should see default CPU/Memory values injected from the LimitRange.

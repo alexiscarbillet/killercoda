@@ -6,7 +6,7 @@ apiVersion: v1
 kind: ResourceQuota
 metadata:
   name: compute-quota
-  namespace: quota-demo
+  namespace: quota-lab
 spec:
   hard:
     pods: "3"

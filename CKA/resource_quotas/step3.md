@@ -7,7 +7,7 @@ apiVersion: v1
 kind: LimitRange
 metadata:
   name: mem-limit-range
-  namespace: quota-demo
+  namespace: quota-lab
 spec:
   limits:
   - default:

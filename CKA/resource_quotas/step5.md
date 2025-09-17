@@ -9,7 +9,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-large
-  namespace: quota-demo
+  namespace: quota-lab
 spec:
   containers:
   - name: busybox
@@ -28,7 +28,7 @@ Apply it:
 
 ```bash
 kubectl apply -f pod-large.yaml
-kubectl describe pod pod-large -n quota-demo
+kubectl describe pod pod-large -n quota-lab
 ```
 
 You should see a failure because it exceeds the namespace ResourceQuota.
