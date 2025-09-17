@@ -14,7 +14,7 @@ sudo nano /etc/logrotate.d/biglog
 
 Add:
 ```bash
-/var/log/biglog {
+/var/log/biglog.log {
     daily
     rotate 7
     copytruncate
