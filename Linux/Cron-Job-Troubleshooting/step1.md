@@ -12,3 +12,4 @@ You should see:
 * * * * * /usr/local/bin/backup.sh
 ```
 
+The problem is that the script do not print anything in the file `~/backup_status.txt`.
