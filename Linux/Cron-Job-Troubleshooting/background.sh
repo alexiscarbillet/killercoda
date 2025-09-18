@@ -8,7 +8,7 @@ EOF
 chmod +x /usr/local/bin/backup.sh
 
 # Add a broken cron job (bad syntax + missing PATH)
-(crontab -l 2>/dev/null; echo "*/5 * * * * root /usr/local/bin/backup.sh") | crontab -
+(crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/backup.sh") | crontab -
 
 echo "Broken cron job added. Learner must debug and fix it."
 tail -f /dev/null
