@@ -1,18 +1,28 @@
 # Step 2: Inspect Cron Logs
 
-Cron logs help determine whether the job is being triggered.  
+Cron logs help determine whether the job is being triggered.
 
 On Ubuntu/Debian systems, cron logs are usually in `syslog`. Check them with:
+
 ```bash
 grep CRON /var/log/syslog
 ```
 
-Look for entries about your broken job. You may see errors like:
+Since the job is broken, you **won’t see the expected log file entries**:
 
-* command not found
+```bash
+cat /var/log/backup.log
+# Output: No such file or directory
+```
 
-* permission denied
+Look at the `syslog` entries — you may notice clues like:
 
-* incorrect file paths
+* The job is listed with an **unexpected extra field** (`root /usr/local/bin/backup.sh`)
+* Cron attempts to run the job but fails silently due to **permissions**
 
-These clues will help you fix the job.
+These clues tell you:
+
+1. The cron entry syntax is incorrect.
+2. The script is not executable.
+
+Fixing these issues will allow the job to run and create `/var/log/backup.log`.

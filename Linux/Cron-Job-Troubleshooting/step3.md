@@ -29,7 +29,7 @@ It should now show an `x` in the permission string, for example:
 3. No changes are needed to the crontab — the entry:
 
 ```bash
-*/5 * * * * /usr/local/bin/backup.sh
+* * * * * /usr/local/bin/backup.sh
 ```
 
 is correct.

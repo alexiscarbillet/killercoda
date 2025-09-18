@@ -10,7 +10,7 @@ EOF
 chmod -x /usr/local/bin/backup.sh
 
 # Add a cron job for the current user
-(crontab -l 2>/dev/null; echo "*/5 * * * * /usr/local/bin/backup.sh") | crontab -
+(crontab -l 2>/dev/null; echo "* * * * * root /usr/local/bin/backup.sh") | crontab -
 
 echo "Broken cron job added. Learner must debug and fix it."
 
