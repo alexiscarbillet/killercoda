@@ -1,18 +1,16 @@
 #!/bin/bash
+# Set up broken cron job scenario
 
-# Create a fake backup script
+# Create the backup script
 cat << 'EOF' > /usr/local/bin/backup.sh
 #!/bin/bash
-echo "Backup executed at $(date)" >> /var/log/backup.log
+# Append a timestamp to a visible file
+echo "$(date) - Backup completed" >> ~/backup_status.txt
 EOF
+chmod +x /usr/local/bin/backup.sh
 
-# Make sure the script is NOT executable (broken)
-chmod -x /usr/local/bin/backup.sh
+# Create a broken cron job (without redirecting output)
+echo "* * * * * /usr/local/bin/backup.sh" | crontab -
 
-# Add a cron job for the current user
-(crontab -l 2>/dev/null; echo "* * * * * root /usr/local/bin/backup.sh") | crontab -
-
-echo "Broken cron job added. Learner must debug and fix it."
-
-# Keep the container running
-tail -f /dev/null
+# Remove the file if it exists
+rm -f ~/backup_status.txt

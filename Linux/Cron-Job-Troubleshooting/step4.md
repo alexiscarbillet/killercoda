@@ -1,20 +1,18 @@
 # Step 4: Verify the Job Runs
 
-Finally, let’s make sure the job works as expected.  
+# Step 4: Verify the Job Runs
 
-Run manually:
-
-```bash
-/usr/local/bin/backup.sh
-```
-
-Check `/var/log/backup.log` has a new line.
-
-Wait a few minutes, then:
+Check the visible status file:
 
 ```bash
-grep CRON /var/log/syslog
-tail -f /var/log/backup.log
+cat ~/backup_status.txt
 ```
 
-Should show cron triggering every 5 minutes.
+You should see lines like:
+
+```bash
+Sat Sep 18 21:37:00 UTC 2025 - Backup completed
+Sat Sep 18 21:38:00 UTC 2025 - Backup completed
+```
+
+The cron job is now running correctly, and you can visibly see the results.

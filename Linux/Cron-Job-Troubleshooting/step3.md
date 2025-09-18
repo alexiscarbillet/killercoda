@@ -1,37 +1,19 @@
 # Step 3: Fix the Broken Cron Job
 
-You’ve seen in the logs that the job is failing with **“Permission denied”** when trying to run `/usr/local/bin/backup.sh`.
+# Step 3: Fix the Broken Cron Job
 
-This happens because the script exists but does **not** have execute permissions.
-
----
-
-### Fix it
-
-1. Make the script executable:
+Edit the cron job:
 
 ```bash
-sudo chmod +x /usr/local/bin/backup.sh
+crontab -e
 ```
 
-2. Confirm the permission:
+Replace the broken line with:
 
 ```bash
-ls -l /usr/local/bin/backup.sh
+* * * * * /usr/local/bin/backup.sh >> ~/backup_status.txt 2>&1
 ```
 
-It should now show an `x` in the permission string, for example:
+This ensures the output is appended to the visible backup_status.txt file.
 
-```
--rwxr-xr-x 1 root root  75 Sep 18 21:20 /usr/local/bin/backup.sh
-```
-
-3. No changes are needed to the crontab — the entry:
-
-```bash
-* * * * * /usr/local/bin/backup.sh
-```
-
-is correct.
-
-Once fixed, cron will be able to execute the script every 5 minutes.
+Save and exit. Wait one minute for the cron job to run.

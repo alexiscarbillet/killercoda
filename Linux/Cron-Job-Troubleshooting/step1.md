@@ -7,13 +7,8 @@ Run:
 crontab -l
 ```
 
-This will display all cron jobs for the current user.
-
-If you don’t see any jobs, try checking the system-wide cron jobs:
-
+You should see:
 ```bash
-cat /etc/crontab
-ls /etc/cron.d/
+* * * * * /usr/local/bin/backup.sh
 ```
 
-Make a note of any suspicious or failing jobs. In this exercise, you’ll find a job that isn’t working correctly.
