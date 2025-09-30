@@ -1,5 +1,5 @@
 {
-  "title": "CKA Process Management & Resource Limits",
+  "title": "Linux Process Management & Resource Limits",
   "description": "Learn to diagnose runaway processes, manage CPU/memory usage, and safely terminate or limit processes on Linux.",
   "difficulty": "Intermediate",
   "time": "20 minutes",
