@@ -19,18 +19,14 @@ This command displays:
 ## Example output
 
 ```pgsql
-NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sda      8:0    0   10G  0 disk
-├─sda1   8:1    0    1G  0 part /boot
-└─sda2   8:2    0    9G  0 part /
-sdb      8:16   0    2G  0 disk
+NAME       MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+vda        253:0    0   20G  0 disk 
+├─vda1     253:1    0   19G  0 part /
+├─vda14    253:14   0    4M  0 part 
+├─vda15    253:15   0  106M  0 part /boot/efi
+└─vda16    259:0    0  913M  0 part /boot
+loop10       7:10   0    1G  0 loop
 ```
-
-Here:
-
-- `/dev/sda` is the main disk (used by the OS).
-
-- `/dev/sdb` is an extra disk not yet mounted.
 
 ## Check more details
 

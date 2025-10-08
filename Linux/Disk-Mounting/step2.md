@@ -1,6 +1,6 @@
 # Step 2: Mount a Disk
 
-Let’s mount `/dev/sdb` to a new directory.
+Let’s mount the fake disk to a new directory.
 
 First, create a mount point:
 
@@ -11,13 +11,7 @@ sudo mkdir /mnt/data
 Then, mount the disk:
 
 ```bash
-sudo mount /dev/sdb /mnt/data
-```
-
-Note: If `/dev/sdb` is not formatted, you can create a filesystem with:
-
-```bash
-sudo mkfs.ext4 /dev/sdb
+sudo mount /dev/loop10 /mnt/data
 ```
 
 ## Verify the mount
@@ -28,7 +22,7 @@ Run:
 lsblk
 ```
 
-You should now see `/mnt/data` listed under the MOUNTPOINT column for `/dev/sdb`.
+You should now see `/mnt/data` listed under the MOUNTPOINT column of the loop device.
 
 Also, check:
 
