@@ -11,7 +11,7 @@ sudo mkdir /mnt/data
 Then, mount the disk:
 
 ```bash
-sudo mount /dev/loop10 /mnt/data
+sudo mount /dev/loop0 /mnt/data
 ```
 
 ## Verify the mount

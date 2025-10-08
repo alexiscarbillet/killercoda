@@ -25,7 +25,7 @@ vda        253:0    0   20G  0 disk
 ├─vda14    253:14   0    4M  0 part 
 ├─vda15    253:15   0  106M  0 part /boot/efi
 └─vda16    259:0    0  913M  0 part /boot
-loop10       7:10   0    1G  0 loop
+loop0        7:10   0    1G  0 loop
 ```
 
 ## Check more details
