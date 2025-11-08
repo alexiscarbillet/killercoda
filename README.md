@@ -5,7 +5,6 @@
 - node maintenance
 - pod-debugging
 - configmap-secrets
-- CrashLoopBackOff
 - network-policies
 - service
 - pv-pvc

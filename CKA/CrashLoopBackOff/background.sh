@@ -1,1 +1,0 @@
-kubectl create deployment broken-app --image=busybox
