@@ -15,11 +15,3 @@ nc -vz 127.0.0.1 8081
 🎉 Verification
 
 If the output confirms a successful connection (e.g., "Connection to 127.0.0.1 8081 port [tcp/*] succeeded!"), you have successfully confirmed the service's network availability.
-
-To clean up, you can stop the server process using the fg (foreground) command followed by Ctrl+C.
-
-```bash
-fg
-```
-
-(Press Ctrl+C after this command to terminate the server.)
