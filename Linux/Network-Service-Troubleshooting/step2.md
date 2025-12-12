@@ -10,7 +10,7 @@ We will use the following flags:
 * `-n`: Show numerical addresses (don't try to resolve names).
 * `-p`: Show the process using the socket.
 
-Run the command and use `grep` to quickly find our target port, **8081**.
+Run the command in another tab and use `grep` to quickly find our target port, **8081**.
 
 ```bash
 ss -tlpn | grep 8081
