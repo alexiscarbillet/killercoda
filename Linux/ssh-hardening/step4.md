@@ -1,26 +1,15 @@
-# Step 4: Applying and Testing
+# Step 4: Testing without Breaking
 
-Now apply the changes and verify that the "Root Login" policy is actually working.
+You can test a new configuration file without restarting the service. This is how pros avoid getting locked out.
 
-1.  **Restart the service**:
+1.  **Create a "dummy" config**:
     ```bash
-    systemctl restart ssh
+    cp /etc/ssh/sshd_config /tmp/test_sshd_config
+    echo "Port 9999" >> /tmp/test_sshd_config
     ```
 
-2.  **Verify SSH is listening on 2222**:
+2.  **Run a test pass**:
     ```bash
-    netstat -tulnp | grep ssh
+    sshd -t -f /tmp/test_sshd_config
     ```
-
-3.  **Test Root Login Denial**:
-    Even with the correct key, root login should now be rejected:
-    ```bash
-    ssh root@localhost -p 2222
-    ```
-    *Expect: Permission denied (publickey).*
-
-4.  **Test User Login**:
-    ```bash
-    ssh $USER@localhost -p 2222
-    ```
-    *Expect: Successful login.*
+    *If there is no error, the config is safe to use. If you had a typo, it would tell you here.*

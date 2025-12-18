@@ -1,11 +1,8 @@
-# SSH Hardening & Security Audit
+# SSH Security Concepts: An Audit Perspective
 
-In this scenario, you are a System Administrator tasked with securing a fresh Ubuntu server. By default, SSH is often configured for compatibility rather than maximum security.
+Instead of changing settings and risking a lockout, this scenario focuses on **Auditing**. You will learn how to inspect a running system, understand how SSH defaults work, and simulate what *would* happen if you tightened security.
 
-### Your Objectives:
-1.  **Generate** an SSH Key pair.
-2.  **Disable** root login and password-based authentication.
-3.  **Change** the default SSH port to mitigate brute-force bots.
-4.  **Configure** a firewall (UFW) to allow only necessary traffic.
-
-Click **Start** to begin securing the system.
+### You will learn:
+1. How to find active SSH settings that aren't in the config file.
+2. The difference between `PermitRootLogin` values.
+3. How to verify which ports are actually listening.

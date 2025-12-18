@@ -1,11 +1,8 @@
-# Scenario Complete!
+# Audit Complete
 
-Congratulations! You have successfully:
-* Implemented **Key-based authentication**.
-* **Disabled root login** and passwords.
-* Changed the **SSH port** to 2222.
-* Configured **UFW** to protect the system.
+You've explored the core concepts of SSH security:
+* **Visibility**: Using `sshd -T` to see defaults.
+* **Hardening**: Why root login and password auth are targets.
+* **Verification**: Using `ss` to monitor network ports.
 
-This drastically reduces the attack surface of your Linux server. 
-
-**Next Steps:** Consider looking into `Fail2Ban` for automated IP blocking!
+You now have the knowledge to secure an SSH server without the fear of locking yourself out!

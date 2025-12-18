@@ -1,22 +1,15 @@
-# Step 2: Modifying sshd_config
+# Step 2: Understanding PermitRootLogin
 
-You noted that `PermitRootLogin yes` is currently active. We need to flip this to `no` and change the port.
+In your audit, you likely saw `PermitRootLogin yes`. 
 
-1.  **Open the config file**:
-    ```bash
-    vi /etc/ssh/sshd_config
-    ```
+### Why is this a risk?
+Every Linux system has a user named `root`. This gives hackers 50% of the login credentials (the username) for free. 
 
-2.  **Search and Replace**:
-    Inside `vi`, you can find the lines quickly by typing `/` followed by the word (e.g., `/PermitRoot`).
+### The three main options:
+| Option | Meaning |
+| :--- | :--- |
+| **yes** | Root can log in with password or key (Least secure). |
+| **prohibit-password** | Root can only log in with an SSH key. |
+| **no** | Root cannot log in at all. You must log in as a normal user and use `sudo`. |
 
-    **Make these specific changes:**
-    * Find `#Port 22` -> Change to `Port 2222` (Remove the `#`)
-    * Find `PermitRootLogin yes` -> Change to `PermitRootLogin no`
-    * Find `#PasswordAuthentication yes` -> Change to `PasswordAuthentication no`
-
-3.  **Leave SFTP Alone**:
-    The line `Subsystem sftp internal-sftp` is fine as is; it handles secure file transfers.
-
-4.  **Save and Exit**:
-    Press `Esc`, then type `:wq` and `Enter`.
+**Concept Check:** By setting this to `no`, an attacker must first guess a valid username *and* then guess a password/key, then bypass `sudo`.

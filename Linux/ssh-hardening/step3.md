@@ -1,23 +1,14 @@
-# Step 3: Opening the New Gate
+# Step 3: The Listening Surface
 
-Since you are moving SSH from port 22 to 2222, the firewall must be updated **before** you restart the service, or you will be locked out of the machine.
+Security isn't just about files; it's about what is happening on the network.
 
-1.  **Check current firewall status**:
+1.  **Check the socket**:
     ```bash
-    ufw status
+    ss -tlpn | grep ssh
     ```
 
-2.  **Allow the NEW port**:
-    ```bash
-    ufw allow 2222/tcp
-    ```
+2.  **Understand the output**:
+    The `*:22` or `0.0.0.0:22` means SSH is listening on **all** available network interfaces on port 22.
 
-3.  **Deny the OLD port** (Optional but recommended):
-    ```bash
-    ufw deny 22/tcp
-    ```
-
-4.  **Enable UFW**:
-    ```bash
-    ufw enable
-    ```
+### The "Obscurity" Concept
+By changing the port to something like `2222`, you don't make the encryption stronger, but you stop 99% of automated "bot" scripts that only scan port 22. This keeps your logs clean and reduces load on the CPU.
