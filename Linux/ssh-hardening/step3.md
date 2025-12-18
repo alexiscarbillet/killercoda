@@ -1,19 +1,23 @@
-# Step 3: Firewall Configuration
+# Step 3: Opening the New Gate
 
-Before applying the SSH changes, we must tell the Uncomplicated Firewall (UFW) to allow our new port, or we will lose access to the server.
+Since you are moving SSH from port 22 to 2222, the firewall must be updated **before** you restart the service, or you will be locked out of the machine.
 
-1.  **Allow the new SSH port**:
+1.  **Check current firewall status**:
+    ```bash
+    ufw status
+    ```
+
+2.  **Allow the NEW port**:
     ```bash
     ufw allow 2222/tcp
     ```
 
-2.  **Enable the firewall**:
+3.  **Deny the OLD port** (Optional but recommended):
+    ```bash
+    ufw deny 22/tcp
+    ```
+
+4.  **Enable UFW**:
     ```bash
     ufw enable
-    ```
-    *(Type 'y' and press Enter when prompted)*
-
-3.  **Check the status**:
-    ```bash
-    ufw status
     ```

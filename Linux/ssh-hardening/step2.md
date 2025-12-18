@@ -1,19 +1,22 @@
-# Step 2: Hardening the Configuration
+# Step 2: Modifying sshd_config
 
-Now we will modify the SSH daemon configuration file to close common security holes.
+You noted that `PermitRootLogin yes` is currently active. We need to flip this to `no` and change the port.
 
-1.  Open the configuration file:
+1.  **Open the config file**:
     ```bash
     vi /etc/ssh/sshd_config
     ```
 
-2.  **Find and modify** the following lines (uncomment them if necessary):
-    * Change `Port 22` to `Port 2222`
-    * Change `PermitRootLogin` to `no`
-    * Change `PasswordAuthentication` to `no`
+2.  **Search and Replace**:
+    Inside `vi`, you can find the lines quickly by typing `/` followed by the word (e.g., `/PermitRoot`).
 
-3.  **Validate the syntax** before restarting to avoid being locked out:
-    ```bash
-    sshd -t
-    ```
-    *If there is no output, the configuration is valid.*
+    **Make these specific changes:**
+    * Find `#Port 22` -> Change to `Port 2222` (Remove the `#`)
+    * Find `PermitRootLogin yes` -> Change to `PermitRootLogin no`
+    * Find `#PasswordAuthentication yes` -> Change to `PasswordAuthentication no`
+
+3.  **Leave SFTP Alone**:
+    The line `Subsystem sftp internal-sftp` is fine as is; it handles secure file transfers.
+
+4.  **Save and Exit**:
+    Press `Esc`, then type `:wq` and `Enter`.

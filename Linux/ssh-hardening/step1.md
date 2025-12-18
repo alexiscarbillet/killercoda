@@ -1,18 +1,21 @@
-# Step 1: Key-Based Authentication
+# Step 1: Verify Existing SSH Keys
 
-Before we disable passwords, we must ensure we can log in via keys.
+In this environment, an SSH key already exists. Before we disable password access, we must ensure the environment is ready for key-based login.
 
-1.  **Generate a new SSH key pair** on the local machine:
+1.  **Check for existing keys**:
     ```bash
-    ssh-keygen -t ed25519 -f ~/.ssh/id_rsa -N ""
+    ls -l ~/.ssh/
     ```
 
-2.  **Simulate "installing" the key** to the server's authorized list:
+2.  **Verify the authorized_keys file**:
+    Ensure the public key is already authorized for the current user:
     ```bash
-    mkdir -p ~/.ssh
-    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-    chmod 600 ~/.ssh/authorized_keys
-    chmod 700 ~/.ssh
+    cat ~/.ssh/authorized_keys
     ```
 
-> **Note:** In a real-world scenario, you would use `ssh-copy-id`. Here, we are manually setting up the environment to ensure your session doesn't disconnect.
+3.  **Test local loopback (Optional)**:
+    Ensure you can connect to yourself via the existing key:
+    ```bash
+    ssh -o BatchMode=yes localhost exit
+    ```
+    *If this returns no error, your key is working perfectly.*

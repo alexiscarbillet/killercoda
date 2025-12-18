@@ -1,25 +1,26 @@
-# Step 4: Applying Changes
+# Step 4: Applying and Testing
 
-Finally, we need to restart the service to apply our hardening rules.
+Now apply the changes and verify that the "Root Login" policy is actually working.
 
-1.  **Restart the SSH service**:
+1.  **Restart the service**:
     ```bash
     systemctl restart ssh
     ```
 
-2.  **Verify the service is listening on the new port**:
+2.  **Verify SSH is listening on 2222**:
     ```bash
-    ss -tlpn | grep ssh
+    netstat -tulnp | grep ssh
     ```
 
-3.  **Test the connection** (simulated):
-    Try to see if the server responds on the old port:
+3.  **Test Root Login Denial**:
+    Even with the correct key, root login should now be rejected:
     ```bash
-    ssh localhost -p 22
+    ssh root@localhost -p 2222
     ```
-    *It should say "Connection refused".*
+    *Expect: Permission denied (publickey).*
 
-4.  Now try the new port:
+4.  **Test User Login**:
     ```bash
-    ssh localhost -p 2222
+    ssh $USER@localhost -p 2222
     ```
+    *Expect: Successful login.*
