@@ -24,3 +24,4 @@
 - Disk Mounting
 - Text Transformation with sed
 - Network Service Troubleshooting
+- ssh-hardening
