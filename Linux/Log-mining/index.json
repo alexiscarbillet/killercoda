@@ -1,0 +1,17 @@
+{
+  "title": "Log Mining with Grep and Awk",
+  "description": "Master the art of log analysis. Use grep to filter patterns and awk to extract and manipulate data columns from web server logs.",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      { "title": "Generate the Evidence", "text": "step1.md" },
+      { "title": "Filtering with Grep", "text": "step2.md" },
+      { "title": "Data Extraction with Awk", "text": "step3.md" },
+      { "title": "Advanced Reporting", "text": "step4.md" }
+    ],
+    "intro": { "text": "intro.md" },
+    "finish": { "text": "finish.md" }
+  },
+  "backend": { "imageid": "ubuntu" }
+}
