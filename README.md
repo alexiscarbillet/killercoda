@@ -13,6 +13,7 @@
 - rbac
 - cronjobs
 - Resource Quotas & LimitRanges
+- storage-classes
 
 ## Linux
 
@@ -24,5 +25,6 @@
 - Disk Mounting
 - Text Transformation with sed
 - Network Service Troubleshooting
+- Firewall Troubleshooting
 - ssh hardening
 - Log mining
