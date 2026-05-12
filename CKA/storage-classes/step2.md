@@ -1,29 +1,21 @@
-Inspect the PVC status and identify why it's not provisioning:
+The PVC and PV have mismatched access modes. The PVC requests `ReadWriteMany` (RWX) but the PV only supports `ReadWriteOnce` (RWO).
+
+Fix the issue by editing the PVC to match the PV's access mode:
 
 ```bash
-kubectl get pvc -n storage-debug
-kubectl describe pvc debug-claim -n storage-debug
+kubectl edit pvc app-data -n storage-debug
 ```
 
-The issue is that no PersistentVolume exists to satisfy the claim. Repair by creating a matching PV:
-
-```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: debug-pv
-spec:
-  capacity:
-    storage: 100Mi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow-storage
-  hostPath:
-    path: "/tmp/debug-storage"
-EOF
+Change the `accessModes` section from:
+```yaml
+accessModes:
+  - ReadWriteMany
 ```
 
-Since the StorageClass uses `Immediate` binding mode, the PVC should bind to the PV immediately.
+To:
+```yaml
+accessModes:
+  - ReadWriteOnce
+```
+
+Save and exit. The PVC should now bind to the PV.

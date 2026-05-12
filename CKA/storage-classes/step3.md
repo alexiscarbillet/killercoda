@@ -1,10 +1,14 @@
-Check the status of the PVC and PV again to verify that they are bound:
+Verify that the PVC is now bound to the PV:
 
 ```bash
 kubectl get pvc -n storage-debug
-kubectl get pv
-kubectl describe pvc debug-claim -n storage-debug
-kubectl describe pv debug-pv
+kubectl describe pvc app-data -n storage-debug
 ```
 
-If the PVC status is `Bound` and the PV status is `Bound`, the storage troubleshooting is complete.
+Check the PV status as well:
+
+```bash
+kubectl describe pv pv-storage
+```
+
+Both should show `Status: Bound` with matching capacity and access modes.

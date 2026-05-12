@@ -1,41 +1,23 @@
-Create the necessary storage resources to simulate a provisioning issue.
+Inspect the storage resources to identify why the PVC is stuck.
 
-First, create a namespace for the scenario:
-
-```bash
-kubectl create namespace storage-debug
-```
-
-Then, create a StorageClass that uses the `no-provisioner` (static provisioning):
+List the resources in the namespace:
 
 ```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: slow-storage
-provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: Immediate
-EOF
+kubectl get pvc -n storage-debug
+kubectl get pv
+kubectl get storageclass
 ```
 
-Finally, create a PVC that requests storage from this StorageClass:
+Describe the PVC to understand the binding issue:
 
 ```bash
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: debug-claim
-  namespace: storage-debug
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
-  storageClassName: slow-storage
-EOF
+kubectl describe pvc app-data -n storage-debug
 ```
 
-Now inspect the PVC status to see the issue.
+Describe the PV to see its configuration:
+
+```bash
+kubectl describe pv pv-storage
+```
+
+Compare the access modes and storage capacity between the PVC and PV. What is preventing the bind?
