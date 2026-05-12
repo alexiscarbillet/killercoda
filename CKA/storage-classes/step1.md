@@ -15,7 +15,7 @@ kind: StorageClass
 metadata:
   name: slow-storage
 provisioner: kubernetes.io/no-provisioner
-volumeBindingMode: WaitForFirstConsumer
+volumeBindingMode: Immediate
 EOF
 ```
 

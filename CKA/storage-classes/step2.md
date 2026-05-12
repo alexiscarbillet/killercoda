@@ -5,7 +5,7 @@ kubectl get pvc -n storage-debug
 kubectl describe pvc debug-claim -n storage-debug
 ```
 
-The issue is that the StorageClass uses `no-provisioner`, so no PV is automatically created. Repair by creating a matching PV:
+The issue is that no PersistentVolume exists to satisfy the claim. Repair by creating a matching PV:
 
 ```bash
 cat <<EOF | kubectl apply -f -
@@ -26,4 +26,4 @@ spec:
 EOF
 ```
 
-Alternatively, edit the PVC to use a different StorageClass or create the PV manually.
+Since the StorageClass uses `Immediate` binding mode, the PVC should bind to the PV immediately.
