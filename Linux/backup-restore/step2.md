@@ -1,23 +1,21 @@
-Fix the backup configuration by creating the missing directories and source files, then test the script.
+Test the backup script by running it manually to verify it creates the backup archive correctly.
 
-Create the required directories and sample data:
-
-```bash
-sudo mkdir -p /backup /original /restore
-sudo mkdir -p /original/subdir
-sudo bash -lc 'echo "Sample data" > /original/file1.txt'
-sudo bash -lc 'echo "More data" > /original/file2.txt'
-sudo bash -lc 'echo "Sub data" > /original/subdir/file3.txt'
-```
-
-Ensure the script is executable:
-
-```bash
-sudo chmod +x /usr/local/bin/backup.sh
-```
-
-Run the backup manually:
+Run the backup script:
 
 ```bash
 sudo /usr/local/bin/backup.sh
 ```
+
+Check if the backup archive was created:
+
+```bash
+ls -lh /backup/backup.tar.gz
+```
+
+Verify the archive contents:
+
+```bash
+tar -tzf /backup/backup.tar.gz
+```
+
+If the archive was created successfully, the backup script is working correctly.
