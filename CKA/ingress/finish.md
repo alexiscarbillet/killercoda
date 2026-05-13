@@ -1,1 +1,0 @@
-Great work! You successfully troubleshooted the Ingress resource, checked the Ingress Controller, and fixed the routing issues. The application is now accessible via the Ingress.
