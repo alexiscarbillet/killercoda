@@ -1,4 +1,4 @@
-Inspect the backup script and logs to identify the failure.
+Inspect the backup script to identify why the backup failed.
 
 Check the backup directory:
 
@@ -12,10 +12,8 @@ Examine the backup script:
 cat /usr/local/bin/backup.sh
 ```
 
-Check for error logs:
+Check the backup service status:
 
 ```bash
-journalctl -u backup.service
-# or
-tail -f /var/log/backup.log
+systemctl status backup.service
 ```

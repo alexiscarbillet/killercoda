@@ -1,20 +1,16 @@
-Perform and verify the restore from the backup.
+Perform and verify the restore from the backup archive.
 
 Restore from tar:
 
 ```bash
-tar -xzf /backup/backup.tar.gz -C /restore/
-```
-
-Or from rsync backup:
-
-```bash
-rsync -av /backup/source/ /restore/
+sudo tar -xzf /backup/backup.tar.gz -C /restore/
 ```
 
 Verify the restored data:
 
 ```bash
 ls -la /restore/
-diff -r /original/ /restore/
+sudo diff -r /original/ /restore/
 ```
+
+If the files are restored correctly, the backup and restore workflow is working.

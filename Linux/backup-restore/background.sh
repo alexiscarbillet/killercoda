@@ -1,25 +1,16 @@
 #!/bin/bash
 set -e
 
-# Create directories
-mkdir -p /backup /source /restore /original
-
-# Create sample data
-echo "Sample data" > /original/file1.txt
-echo "More data" > /original/file2.txt
-mkdir /original/subdir
-echo "Sub data" > /original/subdir/file3.txt
-
-# Create a broken backup script
+# Create a broken backup script for the learner to troubleshoot
 cat > /usr/local/bin/backup.sh <<'EOF'
 #!/bin/bash
-# Broken backup script - missing sudo or wrong paths
+# Broken backup script - paths assume the user created /backup and /original
 tar -czf /backup/backup.tar.gz /original/
 EOF
 
 chmod +x /usr/local/bin/backup.sh
 
-# Create systemd service
+# Create systemd service to run the backup script
 cat > /etc/systemd/system/backup.service <<'EOF'
 [Unit]
 Description=Backup Service
