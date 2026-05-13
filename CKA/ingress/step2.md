@@ -1,25 +1,15 @@
-Check the Ingress Controller to ensure it's installed and running correctly.
+Verify the Ingress resource configuration and check for any issues.
 
-List the Ingress Controller pods:
-
-```bash
-kubectl get pods -n ingress-nginx
-```
-
-If the controller is not installed, deploy it manually. For example:
+Describe the Ingress to see its current configuration:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.1/deploy/static/provider/cloud/deploy.yaml
+kubectl describe ingress my-app -n app
 ```
 
-View the logs of the Ingress Controller:
+Check the Ingress events and status:
 
 ```bash
-kubectl logs -n ingress-nginx deployment/ingress-nginx-controller
+kubectl get ingress my-app -n app -o yaml
 ```
 
-Verify the IngressClass:
-
-```bash
-kubectl get ingressclass
-```
+Look for any misconfigurations in the rules, host, or paths.

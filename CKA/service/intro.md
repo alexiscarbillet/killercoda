@@ -1,11 +1,11 @@
 # Service Not Routing Traffic
 
-You are given a web application that is supposed to be accessible via a Kubernetes Service.  
-However, when you try to access the Service, no traffic reaches the pods.
+In this scenario, the cluster is initially empty. You will create a web application deployment and a Service manually, but intentionally misconfigure the Service selector so it doesn't route traffic correctly.
 
 Your task is to:
-1. Identify the root cause.
-2. Fix the issue so that the Service correctly routes traffic to the pods.
+1. Create the deployment and service with the wrong selector.
+2. Identify the root cause of the routing issue.
+3. Fix the Service selector so traffic routes properly.
 
 ---
 

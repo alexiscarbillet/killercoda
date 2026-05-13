@@ -1,25 +1,24 @@
-# Step 1 – Troubleshoot and Fix the Service
+# Step 1 – Create Resources
 
-1. Check if the Service selector matches the labels of the pods.
-   ```bash
-   kubectl get svc web-service -o yaml
-   kubectl get pods --show-labels
-    ```
+Create the deployment and service with an intentionally wrong selector.
 
-2. If the selector is wrong, patch the Service or edit it:
-    ```bash
-    kubectl edit svc web-service
-    ```
+Create the deployment:
 
-3. Verify that the Service routes traffic:
-    ```bash
-    kubectl port-forward svc/web-service 8080:80
-    curl http://localhost:8080
-    ```
+```bash
+kubectl create deployment web-deployment --image=nginx --replicas=3
+kubectl label deployment web-deployment app=web
+```
 
-**Validation**
-Run the following command to ensure the Service routes to the pods:
-    ```bash
-    kubectl edit svc web-service
-    ```
-If it returns the expected HTML, you are done.
+Create the service with the wrong selector:
+
+```bash
+kubectl expose deployment web-deployment --port=80 --name=web-service --selector=app=wronglabel
+```
+
+Verify the resources are created:
+
+```bash
+kubectl get deployments
+kubectl get svc
+kubectl get pods
+```
