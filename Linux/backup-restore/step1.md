@@ -30,7 +30,7 @@ Add the following content:
 
 ```bash
 #!/bin/bash
-tar -czf /backup/backup.tar.gz /original/
+tar -czf /backup/backup.tar.gz -C / original/
 ```
 
 Save and exit (Ctrl+O, Enter, Ctrl+X).
