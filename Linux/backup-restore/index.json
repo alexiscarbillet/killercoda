@@ -1,0 +1,40 @@
+{
+  "title": "Linux Troubleshooting: Backup and Restore",
+  "description": "Troubleshoot a failed backup script, identify issues with tar or rsync, and restore data from a corrupted backup.",
+  "details": {
+    "steps": [
+      {
+        "title": "Step 1 - Inspect the backup script",
+        "text": "step1.md"
+      },
+      {
+        "title": "Step 2 - Fix the backup configuration",
+        "text": "step2.md"
+      },
+      {
+        "title": "Step 3 - Perform and verify restore",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "background.sh", "target": "/opt/", "chmod": "+x"},
+        {"file": "foreground.sh", "target": "/opt/", "chmod": "+x"}
+      ]
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "terminal",
+    "showdashboard": true
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
