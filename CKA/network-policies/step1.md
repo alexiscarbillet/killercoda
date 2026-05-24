@@ -26,6 +26,9 @@ kubectl run tester --image=busybox --restart=Never -n backend -- sleep 3600
 kubectl wait --for=condition=Ready pod/web -n frontend --timeout=60s
 kubectl wait --for=condition=Ready pod/tester -n backend --timeout=60s
 
+# Expose frontend pod
+kubectl -n frontend expose pod web --port=80
+
 # Test connectivity
 kubectl exec -n backend tester -- wget -qO- http://web.frontend.svc.cluster.local
 ```
